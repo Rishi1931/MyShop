@@ -1,6 +1,6 @@
 
 {% load static %}
-
+{% static "images" as baseUrl %}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -28,13 +28,18 @@
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 			<script src="js/respond.min.js"></script>
 		<![endif]-->
+
+
+
+
 	</head>
     <body>		
 		<div id="top-bar" class="container">
+		
 			<div class="row">
 				<div class="span4">
 					<form method="POST" class="search_form">
-						<input type="text" class="input-block-level search-query" Placeholder="eg. T-sirt">
+						<input type="text" class="input-block-level search-query" Placeholder="search">
 					</form>
 				</div>
 				<div class="span8">
@@ -68,7 +73,7 @@
 			</div>
 		</div>
 		<div id="wrapper" class="container">
-			<section class="navbar main-menu">
+		<!--	<section class="navbar main-menu">
 				<div class="navbar-inner main-menu">				
 					<a href="index.html" class="logo pull-left"><img src="{% static 'themes/images/logo.png' %}" class="site_logo" alt=""></a>
 					<nav id="menu" class="pull-right">
@@ -94,15 +99,15 @@
 						</ul>
 					</nav>
 				</div>
-			</section>
+			</section>-->
 			<section  class="homepage-slider" id="home-slider">
 				<div class="flexslider">
 					<ul class="slides">
 						<li>
-							<img src="{% static 'themes/images/carousel/banner-1.jpg' %}" alt="" />
+							<img src="{% static 'themes/images/carousel/banner-3.jpg' %}" alt="" />
 						</li>
 						<li>
-							<img src="{% static 'themes/images/carousel/banner-2.jpg' %}" alt="" />
+							<img src="{% static 'themes/images/carousel/banner-7.jpg' %}" alt="" />
 							<div class="intro">
 								<h1>Mid season sale</h1>
 								<p><span>Up to 50% Off</span></p>
@@ -112,10 +117,10 @@
 					</ul>
 				</div>			
 			</section>
-			<section class="header_text">
+		<!--	<section class="header_text">
 				We stand for top quality templates. Our genuine developers always optimized bootstrap commercial templates. 
 				<br/>Don't miss to use our cheap abd best bootstrap templates.
-			</section>
+			</section>-->
 			<section class="main-content">
 				<div class="row">
 					<div class="span12">													
@@ -135,7 +140,7 @@
 												<li class="span3">
 													<div class="product-box">
 														<span class="sale_tag"></span>
-														<p><a href="product_detail.html"><img src="{% static 'themes/images/ladies/1.jpg' %}" alt="" /></a></p>
+														<p><a href="product_detail.html"><img src="{{baseUrl}}/{{i.img}}" alt="" /></a></p>
 														<a href="product_detail.html" class="title">{{i.name}}</a><br/>
 														<a href="products.html" class="category">{{i.category}}</a>
 														<p class="price">{{i.price}}</p>
@@ -146,7 +151,7 @@
 												
 											</ul>
 										</div>
-										<div class="item">
+										<!--<div class="item">
 											<ul class="thumbnails">
 												<li class="span3">
 													<div class="product-box">
@@ -181,7 +186,7 @@
 													</div>
 												</li>																																	
 											</ul>
-										</div>
+										</div>-->
 									</div>							
 								</div>
 							</div>						
@@ -206,31 +211,34 @@
 														<a href="product_detail.html" class="title">Quis nostrud exerci tation</a><br/>
 														<a href="products.html" class="category">Quis nostrud</a>
 														<p class="price">$32.50</p>
+														<button id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</button>
+													</div>
+												</li>
+												<li class="span3">
+													<div class="product-box">
+														<p><a href="product_detail.html"><img src="{% static 'themes/images/ladies/3.jpg' %}" alt="" /></a></p>
+														<a href="product_detail.html" class="title">Quis nostrud exerci</a><br/>
+														<a href="products.html" class="category">Quis nostrud</a>
+														<p class="price">$35.50</p>
+														<button id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</button>
 													</div>
 												</li>
 												<li class="span3">
 													<div class="product-box">
 														<p><a href="product_detail.html"><img src="{% static 'themes/images/ladies/8.jpg' %}" alt="" /></a></p>
-														<a href="product_detail.html" class="title">Quis nostrud exerci</a><br/>
-														<a href="products.html" class="category">Quis nostrud</a>
-														<p class="price">$35.50</p>
-													</div>
-												</li>
-												<li class="span3">
-													<div class="product-box">
-														<p><a href="product_detail.html"><img src="{% static 'themes/images/cloth/bootstrap-women-ware6.jpg' %}" alt="" /></a></p>
 														<a href="product_detail.html" class="title">Know exactly turned</a><br/>
 														<a href="products.html" class="category">Quis nostrud</a>
 														<p class="price">$25.30</p>
-														<a href="#" class="btn btn-primary">Add to Cart</a>
+														<button id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</button>
 													</div>
 												</li>
 												<li class="span3">
 													<div class="product-box">
-														<p><a href="product_detail.html"><img src="{% static 'themes/images/ladies/8.jpg' %}" alt="" /></a></p>
+														<p><a href="product_detail.html"><img src="{% static 'themes/images/ladies/4.jpg' %}" alt="" /></a></p>
 														<a href="product_detail.html" class="title">Quis nostrud exerci</a><br/>
 														<a href="products.html" class="category">Quis nostrud</a>
 														<p class="price">$35.50</p>
+														<button id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</button>
 													</div>
 												</li>
 											</ul>
@@ -239,34 +247,78 @@
 											<ul class="thumbnails">
 												<li class="span3">
 													<div class="product-box">
-														<p><a href="product_detail.html"><img src="{% static 'themes/images/cloth/bootstrap-women-ware4.jpg' %}" alt="" /></a></p>
+														<p><a href="product_detail.html"><img src="{% static 'themes/images/ladies/1.jpg' %}" alt="" /></a></p>
 														<a href="product_detail.html" class="title">Know exactly</a><br/>
 														<a href="products.html" class="category">Quis nostrud</a>
 														<p class="price">$45.50</p>
+														<button id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</button>
 													</div>
 												</li>
 												<li class="span3">
 													<div class="product-box">
-														<p><a href="product_detail.html"><img src="{% static 'themes/images/cloth/bootstrap-women-ware3.jpg' %}" alt="" /></a></p>
+														<p><a href="product_detail.html"><img src="{% static 'themes/images/ladies/5.jpg' %}" alt="" /></a></p>
 														<a href="product_detail.html" class="title">Ut wisi enim ad</a><br/>
 														<a href="products.html" class="category">Commodo consequat</a>
 														<p class="price">$33.50</p>
+														<button id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</button>
 													</div>
 												</li>
 											<li class="span3">
 													<div class="product-box">
-														<p><a href="product_detail.html"><img src="{% static 'themes/images/ladies/8.jpg' %}" alt="" /></a></p>
+														<p><a href="product_detail.html"><img src="{% static 'themes/images/ladies/6.jpg' %}" alt="" /></a></p>
 														<a href="product_detail.html" class="title">Quis nostrud exerci</a><br/>
 														<a href="products.html" class="category">Quis nostrud</a>
 														<p class="price">$35.50</p>
+														<button id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</button>
 													</div>
 												</li>
 												<li class="span3">
 													<div class="product-box">
-														<p><a href="product_detail.html"><img src="{% static 'themes/images/cloth/bootstrap-women-ware1.jpg' %}" alt="" /></a></p>
+														<p><a href="product_detail.html"><img src="{% static 'themes/images/ladies/7.jpg' %}" alt="" /></a></p>
 														<a href="product_detail.html" class="title">Quis nostrud exerci</a><br/>
 														<a href="products.html" class="category">Quis nostrud</a>
 														<p class="price">$25.20</p>
+														<button id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</button>
+													</div>
+												</li>																																	
+											</ul>
+										</div>
+											<div class="item">
+											<ul class="thumbnails">
+												<li class="span3">
+													<div class="product-box">
+														<p><a href="product_detail.html"><img src="{% static 'themes/images/ladies/14.jpg' %}" alt="" /></a></p>
+														<a href="product_detail.html" class="title">Know exactly</a><br/>
+														<a href="products.html" class="category">Quis nostrud</a>
+														<p class="price">$45.50</p>
+														<button id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</button>
+													</div>
+												</li>
+												<li class="span3">
+													<div class="product-box">
+														<p><a href="product_detail.html"><img src="{% static 'themes/images/ladies/15.jpg' %}" alt="" /></a></p>
+														<a href="product_detail.html" class="title">Ut wisi enim ad</a><br/>
+														<a href="products.html" class="category">Commodo consequat</a>
+														<p class="price">$33.50</p>
+														<button id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</button>
+													</div>
+												</li>
+											<li class="span3">
+													<div class="product-box">
+														<p><a href="product_detail.html"><img src="{% static 'themes/images/ladies/12.jpg' %}" alt="" /></a></p>
+														<a href="product_detail.html" class="title">Quis nostrud exerci</a><br/>
+														<a href="products.html" class="category">Quis nostrud</a>
+														<p class="price">$35.50</p>
+														<button id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</button>
+													</div>
+												</li>
+												<li class="span3">
+													<div class="product-box">
+														<p><a href="product_detail.html"><img src="{% static 'themes/images/ladies/13.jpg' %}" alt="" /></a></p>
+														<a href="product_detail.html" class="title">Quis nostrud exerci</a><br/>
+														<a href="products.html" class="category">Quis nostrud</a>
+														<p class="price">$25.20</p>
+														<button id="pr{{i.id}}" class="btn btn-primary cart">Add To Cart</button>
 													</div>
 												</li>																																	
 											</ul>
@@ -280,8 +332,8 @@
 								<div class="service">
 									<div class="responsive">	
 										<img src="{% static 'themes/images/feature_img_2.png' %}" alt="" />
-										<h4>MODERN <strong>DESIGN</strong></h4>
-										<p>Lorem Ipsum is simply dummy text of the printing and printing industry unknown printer.</p>									
+										<h4>GOOD <strong>PRODUCTS</strong></h4>
+									<!--	<p>Lorem Ipsum is simply dummy text of the printing and printing industry unknown printer.</p>	-->								
 									</div>
 								</div>
 							</div>
@@ -290,7 +342,7 @@
 									<div class="customize">			
 										<img src="{% static 'themes/images/feature_img_1.png' %}" alt="" />
 										<h4>FREE <strong>SHIPPING</strong></h4>
-										<p>Lorem Ipsum is simply dummy text of the printing and printing industry unknown printer.</p>
+									<!--	<p>Lorem Ipsum is simply dummy text of the printing and printing industry unknown printer.</p>-->
 									</div>
 								</div>
 							</div>
@@ -299,7 +351,7 @@
 									<div class="support">	
 										<img src="{% static 'themes/images/feature_img_3.png' %}" alt="" />
 										<h4>24/7 LIVE <strong>SUPPORT</strong></h4>
-										<p>Lorem Ipsum is simply dummy text of the printing and printing industry unknown printer.</p>
+									<!--	<p>Lorem Ipsum is simply dummy text of the printing and printing industry unknown printer.</p>-->
 									</div>
 								</div>
 							</div>	
@@ -332,10 +384,9 @@
 			</section>
 			<section id="footer-bar">
 				<div class="row">
-	    <center>
 					<div class="span5">
-						<p class="logo"><img src="{% static 'themes/images/logo.png' %}" class="site_logo" alt=""></p>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. the  Lorem Ipsum has been the industry's standard dummy text ever since the you.</p>
+						<p class="logo"><img src="{% static 'images/logo1.jpg' %}" class="site_logo" alt=""></p>
+						<!--<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. the  Lorem Ipsum has been the industry's standard dummy text ever since the you.</p>-->
 						<br/>
 						<span class="social_icons">
 							<a class="facebook" href="#">Facebook</a>
@@ -349,7 +400,7 @@
 			<section id="copyright">
 				<span>Copyright 2013 bootstrappage template  All right reserved.</span>
 			</section>
-		</center>
+		
 		</div>
 		<script src="{% static 'themes/js/common.js' %}"></script>
 		<script src="{% static 'themes/js/jquery.flexslider-min.js' %}"></script>

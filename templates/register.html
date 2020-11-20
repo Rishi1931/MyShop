@@ -1,3 +1,5 @@
+
+{% load static %}
 <!DOCTYPE html>
 <html>
     
@@ -13,13 +15,13 @@
 			margin: 0;
 			padding: 0;
 			height: 100%;
-			background: #7abecc !important;
+			background-image: url('{%static 'images/bg.jpg' %}'); 
 		}
 		.user_card {
 			width: 350px;
 			margin-top: auto;
 			margin-bottom: auto;
-			background: #74cfbf;
+			background: #d7e9ae;
 			position: relative;
 			display: flex;
 			justify-content: center;
@@ -37,7 +39,7 @@
 		}
 
 		#form-title{
-			color: #fff;
+			color: #f7ba5b;
 		}
 		.login_btn {
 			width: 100%;
